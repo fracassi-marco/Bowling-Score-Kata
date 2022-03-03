@@ -1,6 +1,6 @@
 class BowlingGameFactory {
     fun create(): BowlingGame {
-        return BowlingGame(AlwaysZero())
+        return BowlingGame(Accumulator())
     }
 }
 
@@ -9,9 +9,16 @@ interface Rolls {
     fun sum(): Int
 }
 
-class AlwaysZero : Rolls {
+class Accumulator: Rolls {
+
+    private var sum = 0
+
     override fun add(value: String) {
+        try {
+            sum += value.toInt()
+        } catch (_: NumberFormatException) {
+        }
     }
 
-    override fun sum() = 0
+    override fun sum() = sum
 }

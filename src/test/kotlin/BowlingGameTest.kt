@@ -11,4 +11,13 @@ class BowlingGameTest {
 
         assertThat(game.score()).isEqualTo(0)
     }
+
+    @Test
+    fun `all rolls are one`() {
+        val game = BowlingGameFactory().create()
+
+        repeat(20) { game.roll("1") }
+
+        assertThat(game.score()).isEqualTo(20)
+    }
 }
