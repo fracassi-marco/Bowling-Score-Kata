@@ -1,9 +1,9 @@
-class BowlingGame {
+class BowlingGame(private val rolls: Rolls) {
     fun roll(value: String) {
-
+        rolls.add(value)
     }
 
     fun score(): Int {
-        return 0
+        return rolls.sum()
     }
 }
