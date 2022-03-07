@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BowlingGameTest" tests="5" skipped="0" failures="1" errors="0" timestamp="2022-03-07T14:42:05" hostname="maf" time="0.077">
+<testsuite name="BowlingGameTest" tests="5" skipped="0" failures="1" errors="0" timestamp="2022-03-07T15:17:08" hostname="maf" time="0.075">
   <properties/>
-  <testcase name="all strikes()" classname="BowlingGameTest" time="0.033">
+  <testcase name="all strikes()" classname="BowlingGameTest" time="0.029">
     <failure message="java.lang.NumberFormatException: For input string: &quot;X&quot;" type="java.lang.NumberFormatException">java.lang.NumberFormatException: For input string: &quot;X&quot;
 	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.base/java.lang.Integer.parseInt(Integer.java:652)
 	at java.base/java.lang.Integer.parseInt(Integer.java:770)
-	at StandardPoint.build(StandardPoint.kt:8)
+	at StandardPoint.build(StandardPoint.kt:5)
 	at StandardPoint.build(StandardPoint.kt:1)
-	at Accumulator.add(BowlingGameFactory.kt:22)
+	at Accumulator.add(BowlingGameFactory.kt:21)
 	at BowlingGame.roll(BowlingGame.kt:3)
 	at BowlingGameTest.all strikes(BowlingGameTest.kt:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -104,8 +104,8 @@
 </failure>
   </testcase>
   <testcase name="rolls are half nine and half miss()" classname="BowlingGameTest" time="0.04"/>
-  <testcase name="all rolls are one()" classname="BowlingGameTest" time="0.0"/>
-  <testcase name="all rolls are miss()" classname="BowlingGameTest" time="0.001"/>
+  <testcase name="all rolls are one()" classname="BowlingGameTest" time="0.001"/>
+  <testcase name="all rolls are miss()" classname="BowlingGameTest" time="0.0"/>
   <testcase name="manage spares()" classname="BowlingGameTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

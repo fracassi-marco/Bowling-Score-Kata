@@ -40,13 +40,4 @@ class BowlingGameTest {
 
         assertThat(game.score()).isEqualTo(150)
     }
-
-    @Test
-    fun `all strikes`() {
-        val game = BowlingGameFactory().create()
-
-        repeat(12) { game.roll("X") }
-
-        assertThat(game.score()).isEqualTo(300)
-    }
 }
