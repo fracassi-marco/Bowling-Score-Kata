@@ -1,5 +1,5 @@
 class SimpleFrameCounter : FrameCounter {
-    override fun count(rolls: List<Rule>): Int {
+    override fun count(rolls: List<Point>): Int {
         var sum = 0.0
         return rolls.takeWhile {
             sum += it.frameSpan()
@@ -9,5 +9,5 @@ class SimpleFrameCounter : FrameCounter {
 }
 
 interface FrameCounter {
-    fun count(rolls: List<Rule>): Int
+    fun count(rolls: List<Point>): Int
 }
