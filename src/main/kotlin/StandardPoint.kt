@@ -1,9 +1,13 @@
 class StandardPoint : Rule {
-    override fun accumulate(values: List<String>): Int {
-        try {
-            return values.last().toInt()
-        } catch (_: java.lang.NumberFormatException) {
-            return 0
-        }
+    override fun canApply(value: String) = true
+
+    override fun calculate(values: List<String>, currentIndex: Int): Int {
+        return values[currentIndex].toInt()
     }
 }
+
+class Miss : Rule {
+    override fun canApply(value: String) = value == "-"
+    override fun calculate(values: List<String>, currentIndex: Int) = 0
+}
+

@@ -30,4 +30,27 @@ class BowlingGameTest {
 
         assertThat(game.score()).isEqualTo(90)
     }
+
+    @Test
+    @Disabled
+    fun `manage spare`() {
+        val game = BowlingGameFactory().create()
+
+        game.roll("1")
+        game.roll("/")
+        game.roll("2")
+        game.roll("-")
+
+        assertThat(game.score()).isEqualTo(14)
+    }
+
+    @Test
+    @Disabled
+    fun `all strikes`() {
+        val game = BowlingGameFactory().create()
+
+        repeat(12) { game.roll("X") }
+
+        assertThat(game.score()).isEqualTo(300)
+    }
 }

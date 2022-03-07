@@ -1,6 +1,7 @@
 class BowlingGameFactory {
     fun create(): BowlingGame {
         return BowlingGame(Accumulator(listOf(
+            Miss(),
             StandardPoint()
         )))
     }
@@ -13,17 +14,22 @@ interface Rolls {
 
 class Accumulator(private val rules: List<Rule>): Rolls {
 
-    private var sum = 0
     private val values = arrayListOf<String>()
 
     override fun add(value: String) {
         values.add(value)
-        rules.forEach { sum += it.accumulate(values) }
     }
 
-    override fun sum() = sum
+    override fun sum(): Int {
+        var sum = 0
+        for (i in 0 until values.size) {
+            sum += rules.first { it.canApply(values[i]) }.calculate(values, i)
+        }
+        return sum
+    }
 }
 
 interface Rule {
-    fun accumulate(values: List<String>): Int
+    fun canApply(value: String) : Boolean
+    fun calculate(values: List<String>, currentIndex: Int) : Int
 }
