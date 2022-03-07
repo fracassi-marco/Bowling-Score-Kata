@@ -15,16 +15,16 @@ interface Rolls {
 
 class Accumulator(private val rules: List<Rule>): Rolls {
 
-    private val values = arrayListOf<String>()
+    private val values = arrayListOf<Rule>()
 
     override fun add(value: String) {
-        values.add(value)
+        values.add(rules.first { it.canApply(value) }.build(value))
     }
 
     override fun sum(): Int {
         var sum = 0
         for (i in 0 until 20) {
-            sum += rules.first { it.canApply(values[i]) }.calculate(values, i)
+            sum += values[i].calculate(values, i)
         }
         return sum
     }
@@ -32,5 +32,7 @@ class Accumulator(private val rules: List<Rule>): Rolls {
 
 interface Rule {
     fun canApply(value: String) : Boolean
-    fun calculate(values: List<String>, currentIndex: Int) : Int
+    fun calculate(values: List<Rule>, currentIndex: Int) : Int
+    fun rawValue(): Int
+    fun build(value: String): Rule
 }

@@ -42,7 +42,6 @@ class BowlingGameTest {
     }
 
     @Test
-    @Disabled
     fun `all strikes`() {
         val game = BowlingGameFactory().create()
 
