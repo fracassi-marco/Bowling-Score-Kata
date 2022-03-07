@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BowlingGameTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-03T09:05:46" hostname="maf" time="0.058">
+<testsuite name="BowlingGameTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-03-07T08:32:12" hostname="maf" time="0.08">
   <properties/>
-  <testcase name="rolls are half nine and half miss()" classname="BowlingGameTest" time="0.055"/>
+  <testcase name="rolls are half nine and half miss()" classname="BowlingGameTest" time="0.076"/>
   <testcase name="all rolls are one()" classname="BowlingGameTest" time="0.001"/>
   <testcase name="all rolls are miss()" classname="BowlingGameTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
