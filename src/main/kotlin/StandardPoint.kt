@@ -25,3 +25,18 @@ class Spare : Rule{
     override fun build(value: String) = Spare()
     override fun frameSpan() = 0.5
 }
+
+class Strike : Rule{
+    override fun canApply(value: String) = value == "X"
+
+    override fun calculate(values: List<Rule>, currentIndex: Int): Int {
+        if(values.size == currentIndex)
+            return 10
+
+        return 10 + values[currentIndex + 1].rawValue() + values[currentIndex + 2].rawValue()
+    }
+
+    override fun rawValue()= 10
+    override fun build(value: String) = Strike()
+    override fun frameSpan() = 1.0
+}

@@ -3,6 +3,7 @@ class BowlingGameFactory {
         return BowlingGame(Accumulator(SimpleFrameCounter(), listOf(
             Miss(),
             Spare(),
+            Strike(),
             StandardPoint()
         )))
     }
