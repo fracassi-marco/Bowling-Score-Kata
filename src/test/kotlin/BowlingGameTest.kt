@@ -32,16 +32,13 @@ class BowlingGameTest {
     }
 
     @Test
-    @Disabled
-    fun `manage spare`() {
+    fun `manage spares`() {
         val game = BowlingGameFactory().create()
 
-        game.roll("1")
-        game.roll("/")
-        game.roll("2")
-        game.roll("-")
+        repeat(10) { game.roll("5"); game.roll("/") }
+        game.roll("5")
 
-        assertThat(game.score()).isEqualTo(14)
+        assertThat(game.score()).isEqualTo(150)
     }
 
     @Test

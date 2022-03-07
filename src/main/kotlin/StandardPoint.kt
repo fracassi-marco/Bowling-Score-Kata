@@ -11,3 +11,10 @@ class Miss : Rule {
     override fun calculate(values: List<String>, currentIndex: Int) = 0
 }
 
+class Spare : Rule{
+    override fun canApply(value: String) = value == "/"
+
+    override fun calculate(values: List<String>, currentIndex: Int): Int {
+        return 10 - StandardPoint().calculate(values, currentIndex - 1) + StandardPoint().calculate(values, currentIndex + 1)
+    }
+}

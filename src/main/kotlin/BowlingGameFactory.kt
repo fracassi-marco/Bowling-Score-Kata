@@ -2,6 +2,7 @@ class BowlingGameFactory {
     fun create(): BowlingGame {
         return BowlingGame(Accumulator(listOf(
             Miss(),
+            Spare(),
             StandardPoint()
         )))
     }
@@ -22,7 +23,7 @@ class Accumulator(private val rules: List<Rule>): Rolls {
 
     override fun sum(): Int {
         var sum = 0
-        for (i in 0 until values.size) {
+        for (i in 0 until 20) {
             sum += rules.first { it.canApply(values[i]) }.calculate(values, i)
         }
         return sum
