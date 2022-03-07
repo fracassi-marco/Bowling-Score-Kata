@@ -1,10 +1,10 @@
 class BowlingGameFactory {
     fun create(): BowlingGame {
         return BowlingGame(Accumulator(SimpleFrameCounter(), listOf(
-            Miss(),
-            Spare(),
-            Strike(),
-            StandardPoint()
+            MissBuilder(),
+            SpareBuilder(),
+            StrikeBuilder(),
+            PointBuilder()
         )))
     }
 }
@@ -14,12 +14,12 @@ interface Rolls {
     fun sum(): Int
 }
 
-class Accumulator(private val frameCounter: SimpleFrameCounter, private val rules: List<Rule>): Rolls {
+class Accumulator(private val frameCounter: SimpleFrameCounter, private val ruleBuilders: List<RuleBuilder>): Rolls {
 
     private val values = arrayListOf<Rule>()
 
     override fun add(value: String) {
-        values.add(rules.first { it.canApply(value) }.build(value))
+        values.add(ruleBuilders.first { it.canApply(value) }.build(value))
     }
 
     override fun sum(): Int {
@@ -32,9 +32,7 @@ class Accumulator(private val frameCounter: SimpleFrameCounter, private val rule
 }
 
 interface Rule {
-    fun canApply(value: String) : Boolean
     fun calculate(values: List<Rule>, currentIndex: Int) : Int
     fun rawValue(): Int
-    fun build(value: String): Rule
     fun frameSpan(): Double
 }
