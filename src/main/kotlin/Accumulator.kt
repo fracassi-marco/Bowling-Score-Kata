@@ -1,15 +1,15 @@
-class Accumulator(private val frameCounter: SimpleFrameCounter, private val ruleBuilders: List<PointBuilder>): Rolls {
+class Accumulator(private val frameCounter: SimpleFrameCounter, private val pointBuilders: List<PointBuilder>): Rolls {
 
-    private val values = arrayListOf<Point>()
+    private val points = mutableListOf<Point>()
 
     override fun add(value: String) {
-        values.add(ruleBuilders.first { it.canApply(value) }.build(value))
+        points.add(pointBuilders.first { it.canApply(value) }.build(value))
     }
 
     override fun sum(): Int {
         var sum = 0
-        for (i in 0 until frameCounter.count(values)) {
-            sum += values[i].calculate(values, i)
+        for (i in 0 until frameCounter.count(points)) {
+            sum += points[i].calculate(points, i)
         }
         return sum
     }
