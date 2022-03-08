@@ -1,4 +1,4 @@
-class Accumulator(private val frameCounter: SimpleFrameCounter, private val pointBuilders: List<PointBuilder>): Rolls {
+class Accumulator(private val frameCounter: FrameCounter, private val pointBuilders: List<PointBuilder>): Rolls {
 
     private val points = mutableListOf<Point>()
 

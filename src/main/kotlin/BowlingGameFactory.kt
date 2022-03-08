@@ -1,6 +1,6 @@
 class BowlingGameFactory {
     fun create(): BowlingGame {
-        return BowlingGame(Accumulator(SimpleFrameCounter(), listOf(
+        return BowlingGame(Accumulator(FrameCounter(), listOf(
             MissBuilder(),
             SpareBuilder(),
             StrikeBuilder(),
